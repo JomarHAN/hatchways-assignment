@@ -24,7 +24,10 @@ function App() {
           listStudents={students}
           setSearchStudent={setSearchStudent}
         />
-        <SearchTag />
+        <SearchTag
+          listStudents={students}
+          setSearchStudent={setSearchStudent}
+        />
         {searchStudent.length === 0
           ? students.map((student) => (
               <>

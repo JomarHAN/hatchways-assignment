@@ -1,19 +1,22 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./AddTag.css";
+import { setTagsList } from "./features/tagsSlice";
 
-function AddTag() {
+function AddTag({ tags, setTags, fullName }) {
   const [input, setInput] = useState();
-  const [tagName, setTagName] = useState();
+  const dispatch = useDispatch();
+
   const handleEnter = (e) => {
     if (e.key === "Enter") {
-      setTagName(input);
+      setTags([...tags, input]);
+      dispatch(setTagsList({ tagName: input, fullName: fullName }));
       setInput("");
     }
   };
-  console.log(tagName);
+
   return (
     <div className="addTag">
-      <div className="addTag__blank"></div>
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}

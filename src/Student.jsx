@@ -6,6 +6,8 @@ import "./Student.css";
 
 function Student({ student }) {
   const [click, setClick] = useState(false);
+  const [tags, setTags] = useState([]);
+
   const handleClick = () => {
     if (!click) {
       setClick(true);
@@ -43,14 +45,24 @@ function Student({ student }) {
       <div className={`student__hidden ${!click ? "hide" : ""}`}>
         <div className="student__blank"></div>
         <div className="student__tests">
-          {student.grades.map((score, index) => (
+          {student?.grades.map((score, index) => (
             <h4>
               Test {index + 1}: {score}%
             </h4>
           ))}
         </div>
       </div>
-      <AddTag />
+      <div className="student__tagContent">
+        <div className="student__blank"></div>
+        <div className="student__addTags">
+          <div className="student__tags">
+            {tags?.map((tag) => (
+              <p>{tag}</p>
+            ))}
+          </div>
+          <AddTag tags={tags} setTags={setTags} fullName={student.fullName} />
+        </div>
+      </div>
     </div>
   );
 }

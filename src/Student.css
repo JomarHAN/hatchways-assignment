@@ -68,7 +68,7 @@
     flex: 0.2;
   }
 
-  .student__tests{
+  .student__tests, .student__addTags{
     flex: 0.8;
     margin-left: 30px;
   }
@@ -77,4 +77,17 @@
     display: none;
   }
   
-  
+  .student__tagContent{
+    display: flex;
+  }
+
+  .student__tags{
+    display: flex;
+  }
+
+  .student__tags p{
+    margin-right: 5px;
+    padding: 10px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 5px;
+  }

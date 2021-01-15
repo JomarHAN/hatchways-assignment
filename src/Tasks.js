@@ -2,6 +2,9 @@ class Tasks {
     setStudents = null
     listStudents = null
     setSearchResult = null
+    setSearchStudent = null
+
+
     loadData = (setStudents) => {
         this.setStudents = setStudents
         fetch('https://api.hatchways.io/assessment/students')
@@ -30,11 +33,23 @@ class Tasks {
     }
 
     filterFullname = (listStudents, input, setSearchStudent) => {
+        this.setSearchStudent = setSearchStudent
         if (listStudents) {
             const result = listStudents.filter(result => result.fullName.toLowerCase().includes(input))
-            setSearchStudent(result)
+            this.setSearchStudent(result)
         }
     }
+
+    filterTagName = (listTags, listStudents, input, setSearchStudent) => {
+        this.setSearchStudent = setSearchStudent;
+        if (listTags) {
+            const listResult = listTags.filter(result => result.tagName.toLowerCase().includes(input))
+
+            console.log(listResult)
+        }
+    }
+
+
 }
 
 export default Tasks;

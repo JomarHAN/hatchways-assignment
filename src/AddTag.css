@@ -1,14 +1,5 @@
-.addTag{
-    display: flex;
-}
-
-.addTag__blank{
-    flex: 0.2;
-  }
 
 .addTag__inputTag{
-    flex: 0.1;
-    margin-left: 60px;
     border: none;
     background-color: transparent;
     border-bottom: 1px solid lightgray;
