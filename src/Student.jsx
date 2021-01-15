@@ -1,6 +1,7 @@
 import { IconButton } from "@material-ui/core";
 import { Add, Remove } from "@material-ui/icons";
 import React, { useState } from "react";
+import AddTag from "./AddTag";
 import "./Student.css";
 
 function Student({ student }) {
@@ -12,8 +13,6 @@ function Student({ student }) {
       setClick(false);
     }
   };
-
-  console.log(student);
 
   return (
     <div className="student">
@@ -51,6 +50,7 @@ function Student({ student }) {
           ))}
         </div>
       </div>
+      <AddTag />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import SearchInput from "./SearchInput";
+import SearchTag from "./SearchTag";
 import Student from "./Student";
 import Tasks from "./Tasks";
 function App() {
@@ -23,6 +24,7 @@ function App() {
           listStudents={students}
           setSearchStudent={setSearchStudent}
         />
+        <SearchTag />
         {searchStudent.length === 0
           ? students.map((student) => (
               <>
