@@ -1,30 +1,38 @@
-.student{
+  .student{
     display: flex;
-  
+    margin: 10px 0;
+    flex-direction: column;
+  }
+
+  .student__infoAppear{
+    display: flex;
     align-items: center;
     margin: 10px 0;
   }
   
   .student__img{
-    width: 150px;
-    height: 150px;
-    border: 1px solid lightgray;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 99%;
     overflow: hidden;
-    margin: 0 20px;
+    margin: 0 0px;
+    flex: 0.2;
   }
   
   .student__img img{
+    border-radius: 99%;
+    width: 150px;
+    height: 150px;
+    border: 1px solid lightgray;
     height: 100%;
   }
   
   .student__content{
+    flex: 0.8;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-right: 10px;
   }
   
   .student__name{
@@ -36,9 +44,36 @@
     margin-left: 30px;
   }
   
-  .student__info h4{
+  .student__info h4, .student__tests h4{
     font-size: 20px;
     margin: 0 0 5px 0;
     font-weight: 300
+  }
+
+  .student__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .student__expand .MuiSvgIcon-root{
+    font-size: 50px;
+  }
+
+  .student__hidden{
+    display: flex;
+  }
+
+  .student__blank{
+    flex: 0.2;
+  }
+
+  .student__tests{
+    flex: 0.8;
+    margin-left: 30px;
+  }
+
+  .hide{
+    display: none;
   }
   
