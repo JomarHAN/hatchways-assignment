@@ -1,5 +1,7 @@
 class Tasks {
     setStudents = null
+    listStudents = null
+    setSearchResult = null
     loadData = (setStudents) => {
         this.setStudents = setStudents
         fetch('https://api.hatchways.io/assessment/students')
@@ -22,9 +24,16 @@ class Tasks {
             }
             const averageScore = (newArr.reduce((a, b) => a + b, 0)) / arrScore?.length
             eachStudent.averageScore = averageScore
+            eachStudent.fullName = eachStudent.firstName + " " + eachStudent.lastName
         }
         this.setStudents(newData)
+    }
 
+    filterFullname = (listStudents, input, setSearchStudent) => {
+        if (listStudents) {
+            const result = listStudents.filter(result => result.fullName.toLowerCase().includes(input))
+            setSearchStudent(result)
+        }
     }
 }
 

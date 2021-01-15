@@ -1,0 +1,44 @@
+.student{
+    display: flex;
+  
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .student__img{
+    width: 150px;
+    height: 150px;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 99%;
+    overflow: hidden;
+    margin: 0 20px;
+  }
+  
+  .student__img img{
+    height: 100%;
+  }
+  
+  .student__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .student__name{
+    font-size: 50px;
+    margin: 20px 0 5px 0
+  }
+  
+  .student__info{
+    margin-left: 30px;
+  }
+  
+  .student__info h4{
+    font-size: 20px;
+    margin: 0 0 5px 0;
+    font-weight: 300
+  }
+  

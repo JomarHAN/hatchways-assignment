@@ -16,47 +16,4 @@
   box-shadow: 0 0 5px 0;
 }
 
-.app__student{
-  display: flex;
-
-  align-items: center;
-  margin: 10px 0;
-}
-
-.app__studentImg{
-  width: 150px;
-  height: 150px;
-  border: 1px solid lightgray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 99%;
-  overflow: hidden;
-  margin: 0 20px;
-}
-
-.app__studentImg img{
-  height: 100%;
-}
-
-.app__studentInfo{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.app__studentName{
-  font-size: 50px;
-  margin: 20px 0 5px 0
-}
-
-.app__studentContent{
-  margin-left: 30px;
-}
-
-.app__studentContent h4{
-  font-size: 20px;
-  margin: 0 0 5px 0;
-  font-weight: 300
-}
 
