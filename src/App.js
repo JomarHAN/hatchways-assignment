@@ -7,11 +7,21 @@ import Tasks from "./Tasks";
 function App() {
   const [students, setStudents] = useState([]);
   const [searchStudent, setSearchStudent] = useState([]);
+  const [searchName, setSearchName] = useState([]);
+  const [searchTags, setSearchTags] = useState([]);
+  const [inputName, setInputName] = useState();
+  const [inputTag, setInputTag] = useState();
   const fetchData = new Tasks();
 
   const studentsData = () => {
     fetchData.loadData(setStudents);
   };
+
+  const studentSearch = () => {
+    fetchData.filterFinal(students, searchName, searchTags, setSearchStudent);
+  };
+
+  useEffect(studentSearch, [inputName, inputTag]);
 
   useEffect(() => {
     studentsData();
@@ -22,11 +32,13 @@ function App() {
       <div className="app__container">
         <SearchInput
           listStudents={students}
-          setSearchStudent={setSearchStudent}
+          setSearchName={setSearchName}
+          setInputName={setInputName}
         />
         <SearchTag
           listStudents={students}
-          setSearchStudent={setSearchStudent}
+          setSearchTags={setSearchTags}
+          setInputTag={setInputTag}
         />
         {searchStudent.length === 0
           ? students.map((student) => (

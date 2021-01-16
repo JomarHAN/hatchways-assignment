@@ -3,15 +3,22 @@ import { useDispatch } from "react-redux";
 import "./AddTag.css";
 import { setTagsList } from "./features/tagsSlice";
 
-function AddTag({ tags, setTags, fullName }) {
+function AddTag({ tags, setTags, student }) {
   const [input, setInput] = useState();
   const dispatch = useDispatch();
 
   const handleEnter = (e) => {
     if (e.key === "Enter") {
       setTags([...tags, input]);
-      dispatch(setTagsList({ tagName: input, fullName: fullName }));
+      dispatch(setTagsList(input));
       setInput("");
+      if (student.tags === undefined) {
+        student.tags = [input];
+      } else {
+        let newArr = student.tags;
+        newArr.push(input);
+        student.tags = newArr;
+      }
     }
   };
 

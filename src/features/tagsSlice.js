@@ -3,11 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 export const tagsSlice = createSlice({
   name: 'tags',
   initialState: {
-    tagsList: [{ tagName: "", fullName: "" }],
+    tagsList: [],
   },
   reducers: {
     setTagsList: (state, action) => {
-      const newList = [...state.tagsList, { tagName: action.payload.tagName, fullName: action.payload.fullName }]
+      const newList = state.tagsList
+      newList.splice(0, 0, action.payload)
       state.tagsList = newList
     }
   },

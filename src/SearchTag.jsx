@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectTagsList } from "./features/tagsSlice";
 import "./SearchTag.css";
 import Tasks from "./Tasks";
 
-function SearchTag({ listStudents, setSearchStudent }) {
+function SearchTag({ listStudents, setSearchTags, setInputTag }) {
   const [input, setInput] = useState();
-  const listTags = useSelector(selectTagsList);
 
   const tasks = new Tasks();
 
   const filterStudent = () => {
-    tasks.filterTagName(listTags, listStudents, input, setSearchStudent);
+    tasks.filterTagName(listStudents, input, setSearchTags);
   };
 
   const handleChange = (e) => {
@@ -19,6 +16,7 @@ function SearchTag({ listStudents, setSearchStudent }) {
   };
 
   useEffect(() => {
+    setInputTag(input);
     filterStudent();
   }, [input]);
 

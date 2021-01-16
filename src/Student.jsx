@@ -45,7 +45,7 @@ function Student({ student }) {
       <div className={`student__hidden ${!click ? "hide" : ""}`}>
         <div className="student__blank"></div>
         <div className="student__tests">
-          {student?.grades.map((score, index) => (
+          {student?.grades?.map((score, index) => (
             <h4>
               Test {index + 1}: {score}%
             </h4>
@@ -56,11 +56,11 @@ function Student({ student }) {
         <div className="student__blank"></div>
         <div className="student__addTags">
           <div className="student__tags">
-            {tags?.map((tag) => (
+            {student?.tags?.map((tag) => (
               <p>{tag}</p>
             ))}
           </div>
-          <AddTag tags={tags} setTags={setTags} fullName={student.fullName} />
+          <AddTag tags={tags} setTags={setTags} student={student} />
         </div>
       </div>
     </div>

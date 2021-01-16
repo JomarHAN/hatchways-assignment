@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./SearchInput.css";
 import Tasks from "./Tasks";
 
-function SearchInput({ listStudents, setSearchStudent }) {
+function SearchInput({ listStudents, setSearchName, setInputName }) {
   const [input, setInput] = useState();
 
   const tasks = new Tasks();
 
   const filterStudent = () => {
-    tasks.filterFullname(listStudents, input, setSearchStudent);
+    tasks.filterFullname(listStudents, input, setSearchName);
   };
 
   const handleChange = (e) => {
@@ -17,6 +17,7 @@ function SearchInput({ listStudents, setSearchStudent }) {
 
   useEffect(() => {
     filterStudent();
+    setInputName(input);
   }, [input]);
 
   return (

@@ -2,7 +2,10 @@ class Tasks {
     setStudents = null
     listStudents = null
     setSearchResult = null
-    setSearchStudent = null
+    setSearchName = null
+    setSearchTags = null
+    studentName = null
+    studentTag = null
 
 
     loadData = (setStudents) => {
@@ -28,28 +31,50 @@ class Tasks {
             const averageScore = (newArr.reduce((a, b) => a + b, 0)) / arrScore?.length
             eachStudent.averageScore = averageScore
             eachStudent.fullName = eachStudent.firstName + " " + eachStudent.lastName
+            eachStudent.tags = []
         }
         this.setStudents(newData)
     }
 
-    filterFullname = (listStudents, input, setSearchStudent) => {
-        this.setSearchStudent = setSearchStudent
+    filterFullname = (listStudents, input, setSearchName) => {
         if (listStudents) {
-            const result = listStudents.filter(result => result.fullName.toLowerCase().includes(input))
-            this.setSearchStudent(result)
+            const studentName = listStudents.filter(studentName => studentName.fullName.toLowerCase().includes(input))
+            setSearchName(studentName)
         }
     }
 
-    filterTagName = (listTags, listStudents, input, setSearchStudent) => {
-        this.setSearchStudent = setSearchStudent;
-        if (listTags) {
-            const listResult = listTags.filter(result => result.tagName.toLowerCase().includes(input))
-
-            console.log(listResult)
+    filterTagName = (listStudents, input, setSearchTags) => {
+        if (!input) {
+            setSearchTags([])
+        } else {
+            let listTags = []
+            for (let i = 0; i < listStudents.length; i++) {
+                const studentTag = listStudents[i].tags.filter(tag => tag.toLowerCase().includes(input))
+                if (studentTag.length !== 0) {
+                    listTags.push(listStudents[i])
+                }
+            }
+            setSearchTags(listTags)
         }
     }
 
-
+    filterFinal = (students, searchName, searchTags, setSearchStudent) => {
+        if (searchName.length === 0 && searchTags.length === 0) {
+            setSearchStudent(students)
+        } else if (searchName.length > 0 && searchTags.length === 0) {
+            setSearchStudent(searchName)
+        } else if (searchName.length === 0 && searchTags.length > 0) {
+            setSearchStudent(searchTags)
+        } else if (searchName.length > 0 && searchTags.length > 0) {
+            let newList = []
+            for (var i = 0; i < searchTags.length; i++) {
+                if (searchName.indexOf(searchTags[i]) !== -1) {
+                    newList.push(searchTags[i])
+                }
+            }
+            setSearchStudent(newList)
+        }
+    }
 }
 
 export default Tasks;
